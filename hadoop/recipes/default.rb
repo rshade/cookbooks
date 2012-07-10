@@ -1,5 +1,13 @@
 rightscale_marker :begin
 
-log " boom"
+
+
+server_collection "dizzle" do
+  tags [ "name:*" ]
+end
+
+
+
+
 
 rightscale_marker :end
