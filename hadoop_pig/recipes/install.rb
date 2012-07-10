@@ -11,6 +11,6 @@ bash "download_pig" do
   cwd "/tmp"
   flags "-ex"
   code <<-EOM
-    wget -q "#{node[:pig][:source]}"
+    wget -q "#{node['pig']['source']}"
   EOM
 end
