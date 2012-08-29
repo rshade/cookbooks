@@ -30,5 +30,16 @@ phpunit_packages.each do |file|
 end
 
 
+# install phpunit packages using pear
+
+phpunit_packages.each do |tgz|
+  bash "install_#{tgz}" do
+    flags "-ex"
+    cwd "/tmp"
+    code <<-EOM
+      pear install "#{tgz}"
+    EOM
+  end
+end
 
 rightscale_marker :end
