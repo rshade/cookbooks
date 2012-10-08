@@ -7,3 +7,5 @@ version          "0.0.1"
 
 depends "apt"
 depends "rightscale"
+
+recipe "cassandra::default", "Test recipe for Cassandra stuff"
