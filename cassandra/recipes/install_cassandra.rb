@@ -20,7 +20,6 @@ when "ubuntu"
     action :add
     notifies :run, resources(:execute => "apt-get update"), :immediately
   end
-  git st
 end
 
 package "cassandra"
