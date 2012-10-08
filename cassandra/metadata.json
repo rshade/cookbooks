@@ -26,7 +26,8 @@
   "groupings": {
   },
   "recipes": {
-    "cassandra::default": "Test recipe for Cassandra stuff"
+    "cassandra::default": "Test recipe for Cassandra stuff",
+    "cassandra::install_cassandra": "Test recipe for Cassandra stuff"
   },
   "version": "0.0.1"
 }
