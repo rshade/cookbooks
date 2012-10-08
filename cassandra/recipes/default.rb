@@ -9,6 +9,6 @@
 
 rightscale_marker :begin
 
-log "XXXXXXXXXXXXXXXX CASSANDRA XXXXXXXXXXXXX"
+include_recipe "cassandra::install_cassandra"
 
 rightscale_marker :end

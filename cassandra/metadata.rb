@@ -9,3 +9,4 @@ depends "apt"
 depends "rightscale"
 
 recipe "cassandra::default", "Test recipe for Cassandra stuff"
+recipe "cassandra::install_cassandra", "Test recipe for Cassandra stuff"
