@@ -26,8 +26,9 @@
   "groupings": {
   },
   "recipes": {
-    "cassandra::default": "Test recipe for Cassandra stuff",
-    "cassandra::install_cassandra": "Test recipe for Cassandra stuff"
+    "cassandra::default": "Entry point for Cassandra installation",
+    "cassandra::install_cassandra": "Add the Apache Cassandra repo and install software.",
+    "cassandra::install_config_files": "Install Cassandra config files from Chef templates."
   },
   "version": "0.0.1"
 }

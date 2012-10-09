@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: cassandra
-# Recipe:: default
+# Recipe:: install_config_files
 #
 # Copyright 2012, RightScale Inc
 #
@@ -9,7 +9,8 @@
 
 rightscale_marker :begin
 
-include_recipe "cassandra::install_cassandra"
-include_recipe "cassandra::install_config_files"
+template "/etc/cassandra/cassandra.yaml" do
+  source "cassandra.yaml.erb"
+end
 
 rightscale_marker :end

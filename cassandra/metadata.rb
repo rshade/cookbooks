@@ -8,5 +8,6 @@ version          "0.0.1"
 depends "apt"
 depends "rightscale"
 
-recipe "cassandra::default", "Test recipe for Cassandra stuff"
-recipe "cassandra::install_cassandra", "Test recipe for Cassandra stuff"
+recipe "cassandra::default", "Entry point for Cassandra installation"
+recipe "cassandra::install_cassandra", "Add the Apache Cassandra repo and install software."
+recipe "cassandra::install_config_files", "Install Cassandra config files from Chef templates."

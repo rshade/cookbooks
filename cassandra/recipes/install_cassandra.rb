@@ -9,7 +9,6 @@
 
 rightscale_marker :begin
 
-case node['platform']
 when "ubuntu"
   include_recipe "apt"
   apt_repository "cassandra-repo" do
@@ -21,6 +20,10 @@ when "ubuntu"
     notifies :run, resources(:execute => "apt-get update"), :immediately
   end
 end
+
+# Installing the cassandra debian package also installs openjdk.
+# Oracle java is already installed at /usr/lib/jvm/java-6-sun and should be used
+# for $JAVA_HOME instead.
 
 package "cassandra"
 
