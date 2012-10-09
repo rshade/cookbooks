@@ -23,7 +23,7 @@
   },
   "attributes": {
     "cassandra/node_number": {
-      "description": "Cassandra ring node position (Should be between 1..n)",
+      "description": "Cassandra ring node position (Should be between 0 .. N-1).",
       "recipes": [
         "cassandra::set_tags"
       ],
@@ -42,7 +42,7 @@
     "cassandra::default": "Entry point for Cassandra installation",
     "cassandra::install_cassandra": "Add the Apache Cassandra repo and install software.",
     "cassandra::install_config_files": "Install Cassandra config files from Chef templates.",
-    "cassandra::set_tags": "sets tags"
+    "cassandra::generate_initial_tokens": "Generate initial Cassandra tokens."
   },
   "version": "0.0.1"
 }

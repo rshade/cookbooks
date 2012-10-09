@@ -8,14 +8,14 @@ version          "0.0.1"
 depends "apt"
 depends "rightscale"
 
-recipe "cassandra::default"              , "Entry point for Cassandra installation"
-recipe "cassandra::install_cassandra"    , "Add the Apache Cassandra repo and install software."
-recipe "cassandra::install_config_files" , "Install Cassandra config files from Chef templates."
-recipe "cassandra::set_tags"             , "sets tags"
+recipe "cassandra::default"                 , "Entry point for Cassandra installation"
+recipe "cassandra::install_cassandra"       , "Add the Apache Cassandra repo and install software."
+recipe "cassandra::install_config_files"    , "Install Cassandra config files from Chef templates."
+recipe "cassandra::generate_initial_tokens" , "Generate initial Cassandra tokens."
 
 
 attribute "cassandra/node_number",
-  :description  => "Cassandra ring node position (Should be between 1..n)",
+  :description  => "Cassandra ring node position (Should be between 0 .. N-1).",
   :recipes      => [ "cassandra::set_tags" ],
   :type         => "string",
   :display_name => "node_number",
