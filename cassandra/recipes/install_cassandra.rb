@@ -9,6 +9,7 @@
 
 rightscale_marker :begin
 
+case node['platform']
 when "ubuntu"
   include_recipe "apt"
   apt_repository "cassandra-repo" do
