@@ -28,7 +28,8 @@
   "recipes": {
     "cassandra::default": "Entry point for Cassandra installation",
     "cassandra::install_cassandra": "Add the Apache Cassandra repo and install software.",
-    "cassandra::install_config_files": "Install Cassandra config files from Chef templates."
+    "cassandra::install_config_files": "Install Cassandra config files from Chef templates.",
+    "cassandra::set_tags": "sets tags"
   },
   "version": "0.0.1"
 }
