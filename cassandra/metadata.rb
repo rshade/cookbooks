@@ -23,7 +23,7 @@ attribute "cassandra/node_total",
 
 attribute "cassandra/node_number",
   :description  => "Cassandra ring node position (Should be between 0 .. N-1).",
-  :recipes      => [ "cassandra::set_tags" ],
+  :recipes      => [ "cassandra::generate_initial_token" ],
   :type         => "string",
   :display_name => "node_number",
   :required     => "required"
