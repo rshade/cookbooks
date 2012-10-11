@@ -22,6 +22,19 @@
   "replacing": {
   },
   "attributes": {
+    "cassandra/node_total": {
+      "description": "Total number of nodes in the Cassandra ring.",
+      "recipes": [
+        "cassandra:generate_initial_token"
+      ],
+      "type": "string",
+      "display_name": "node_total",
+      "required": "required",
+      "choice": [
+
+      ],
+      "calculated": false
+    },
     "cassandra/node_number": {
       "description": "Cassandra ring node position (Should be between 0 .. N-1).",
       "recipes": [
@@ -42,7 +55,7 @@
     "cassandra::default": "Entry point for Cassandra installation",
     "cassandra::install_cassandra": "Add the Apache Cassandra repo and install software.",
     "cassandra::install_config_files": "Install Cassandra config files from Chef templates.",
-    "cassandra::generate_initial_tokens": "Generate initial Cassandra tokens."
+    "cassandra::generate_initial_token": "Generate initial Cassandra token for the node."
   },
   "version": "0.0.1"
 }
