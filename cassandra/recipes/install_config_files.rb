@@ -26,6 +26,11 @@ end
 template "/etc/cassandra/cassandra.yaml" do
   source "cassandra.yaml.erb"
   mode "644"
+  owner "root"
+  group "root"
+  variables({
+    :initial_token => node['cassandra']['initial_token']
+  })
 end
 
 template "/etc/cassandra/log4j-server.properties" do
@@ -55,7 +60,7 @@ end
 
 
 service "cassandra" do
-  action :start
+  action :restart
 end
 
 rightscale_marker :end

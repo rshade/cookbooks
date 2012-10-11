@@ -9,12 +9,8 @@
 
 rightscale_marker :begin
 
-token = nil
 ruby "generate_initial_token" do
-  token = `/usr/bin/token-generator -n #{node['cassandra']['node_total']}`.to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last
+  node.set['cassandra']['initial_token'] = `/usr/bin/token-generator -n #{node['cassandra']['node_total']}`.to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last
 end
-
-node.set["stefhen"]["name"] = "biffa"
-
 
 rightscale_marker :end
