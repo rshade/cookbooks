@@ -10,7 +10,7 @@
 rightscale_marker :begin
 
 #include_recipe "cassandra::install_cassandra"
-include_recipe "cassandra::generate_initial_tokens"
+include_recipe "cassandra::generate_initial_token"
 #include_recipe "cassandra::install_config_files"
 #include_recipe "cassandra::set_tags"
 
