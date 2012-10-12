@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: cassandra
-# Recipe:: install_cassandra
+# Recipe:: add_cassandra_repo
 #
 # Copyright 2012, RightScale Inc
 #
@@ -12,14 +12,15 @@ rightscale_marker :begin
 case node['platform']
 when "ubuntu"
   include_recipe "apt"
-  a = apt_repository "cassandra-repo" do
+
+  a = apt_repository "cassandra" do
     uri "http://www.apache.org/dist/cassandra/debian"
     components ["11x", "main"]
     keyserver "pgp.mit.edu"
     key "4BD736A82B5C1B00"
     action :nothing
-    notifies :run, resources(:execute => "apt-get update"), :immediately
   end
+  
   a.run_action(:add)
 end
 
