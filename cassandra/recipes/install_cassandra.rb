@@ -23,13 +23,4 @@ when "ubuntu"
   a.run_action(:add)
 end
 
-# Installing the cassandra debian package also installs openjdk.
-# Oracle java is already installed at /usr/lib/jvm/java-6-sun and should be used
-# for $JAVA_HOME instead.
-
-p = package "cassandra" do
-  action :nothing
-end
-p.run_action(:install)
-
 rightscale_marker :end

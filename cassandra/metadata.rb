@@ -10,6 +10,7 @@ depends "rightscale"
 
 recipe "cassandra::default"                , "Entry point for Cassandra installation"
 recipe "cassandra::install_cassandra"      , "Add the Apache Cassandra repo and install software."
+recipe "cassandra::install_cassandra_2"      , "Add the Apache Cassandra repo and install software."
 recipe "cassandra::install_config_files"   , "Install Cassandra config files from Chef templates."
 recipe "cassandra::generate_initial_token" , "Generate initial Cassandra token for the node."
 
