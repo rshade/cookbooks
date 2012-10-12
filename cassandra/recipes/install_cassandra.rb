@@ -16,6 +16,9 @@ bash "install_cassandra" do
   EOM
 end
 
+log "NODE_NUMBER: #{node['cassandra']['node_number']}"
+log "NODE_TOTAL:  #{node['cassandra']['node_total']}"
+
 ruby_block "generate_initial_token" do
   block do
     file = File.open("/tmp/initial_token-#{node['rightscale']['instance_uuid']}", 'w')
