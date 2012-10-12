@@ -23,13 +23,20 @@ end
   end
 end
 
+initial_token = nil
+ruby "read_initial_token" do
+  initial_token = File.open("/tmp/initial_token-#{node['rightscale']['instance_uuid']}").read
+end
+
+right_link_tag "cassandra:initial_token=#{initial_token}"
+
 template "/etc/cassandra/cassandra.yaml" do
   source "cassandra.yaml.erb"
   mode "644"
   owner "root"
   group "root"
   variables({
-    :initial_token => node['cassandra']['initial_token']
+    :initial_token => initial_token
   })
 end
 

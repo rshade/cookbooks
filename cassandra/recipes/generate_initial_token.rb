@@ -11,7 +11,9 @@ rightscale_marker :begin
 
 ruby_block "generate_initial_token" do
   block do
-    node.set['cassandra']['initial_token'] = %x[/usr/bin/token-generator -n #{node['cassandra']['node_total']}].to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last
+    file = File.open("/tmp/initial_token-#{node['rightscale']['instance_uuid']}")
+    file.write(%x[/usr/bin/token-generator -n #{node['cassandra']['node_total']}].to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last)
+    file.close
   end
 end
 
