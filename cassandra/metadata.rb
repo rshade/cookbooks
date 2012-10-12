@@ -15,14 +15,14 @@ recipe "cassandra::generate_initial_token" , "Generate initial Cassandra token f
 
 attribute "cassandra/node_total",
   :description  => "Total number of nodes in the Cassandra ring.",
-  :recipes      => [ "cassandra::generate_initial_token" ],
+  :recipes      => [ "cassandra::default" ],
   :type         => "string",
   :display_name => "node_total",
   :required     => "required"
 
 attribute "cassandra/node_number",
   :description  => "Cassandra ring node position (Should be between 1..N).",
-  :recipes      => [ "cassandra::generate_initial_token" ],
+  :recipes      => [ "cassandra::default" ],
   :type         => "string",
   :display_name => "node_number",
   :required     => "required"
