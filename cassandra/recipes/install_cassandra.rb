@@ -4,7 +4,7 @@ bash "download_cassandra" do
   flags "-ex"
   cwd "/tmp"
   code <<-EOM
-    wget -q http://stefhen-rightscale/apache-cassandra-1.1.5-bin.tar.gz
+    wget -q http://stefhen-rightscale.s3.amazonaws.com/apache-cassandra-1.1.5-bin.tar.gz
   EOM
 end
 
@@ -15,3 +15,14 @@ bash "install_cassandra" do
     tar xf apache-cassandra-1.1.5-bin.tar.gz -C /usr/local
   EOM
 end
+
+ruby_block "generate_initial_token" do
+  block do
+    file = File.open("/tmp/initial_token-#{node['rightscale']['instance_uuid']}", 'w')
+    file.write(%x[/usr/bin/token-generator -n #{node['cassandra']['node_total']}].to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last)
+    file.close
+  end
+end
+
+rightscale_marker :end
+
