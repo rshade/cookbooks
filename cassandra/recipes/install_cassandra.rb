@@ -19,7 +19,7 @@ end
 ruby_block "generate_initial_token" do
   block do
     file = File.open("/tmp/initial_token-#{node['rightscale']['instance_uuid']}", 'w')
-    file.write(%x[/usr/local/apache-cassandra-1.1.5/bin/token-generator -n #{node['cassandra']['node_total']}].to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last)
+    file.write(%x[/usr/local/apache-cassandra-1.1.5/tools/bin/token-generator -n #{node['cassandra']['node_total']}].to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last)
     file.close
   end
 end
