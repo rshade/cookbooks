@@ -9,9 +9,10 @@
 
 rightscale_marker :begin
 
-ruby "generate_initial_token" do
-  #node.set['cassandra']['initial_token'] = `/usr/bin/token-generator -n #{node['cassandra']['node_total']}`.to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last
-  node.set['cassandra']['initial_token'] = %x[/usr/bin/token-generator -n #{node['cassandra']['node_total']}].to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/].first.split.last
+ruby_block "generate_initial_token" do
+  block do
+    node.set['cassandra']['initial_token'] = %x[/usr/bin/token-generator -n #{node['cassandra']['node_total']}].to_a.grep(/Node #0?#{node['cassandra']['node_number']}:/).first.split.last
+  end
 end
 
 rightscale_marker :end
