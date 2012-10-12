@@ -52,6 +52,7 @@
   "groupings": {
   },
   "recipes": {
+    "cassandra::default": "Default recipe",
     "cassandra::install_cassandra": "Add the Apache Cassandra repo and install software.",
     "cassandra::install_config_files": "Install Cassandra config files from Chef templates.",
     "cassandra::generate_initial_token": "Generate initial Cassandra token for the node."

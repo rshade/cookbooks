@@ -8,11 +8,10 @@ version          "0.0.3"
 depends "apt"
 depends "rightscale"
 
+recipe "cassandra::default"                , "Default recipe"
 recipe "cassandra::install_cassandra"      , "Add the Apache Cassandra repo and install software."
 recipe "cassandra::install_config_files"   , "Install Cassandra config files from Chef templates."
 recipe "cassandra::generate_initial_token" , "Generate initial Cassandra token for the node."
-
-
 
 attribute "cassandra/node_total",
   :description  => "Total number of nodes in the Cassandra ring.",
